@@ -12,13 +12,13 @@ const Services: React.FC = () => {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" as const } },
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
   };
 
   const services = [
     {
-      icon: <Mic className="w-8 h-8 text-primary" />,
+      icon: <Mic className="w-6 sm:w-8 h-6 sm:h-8 text-primary" />,
       title: "Voice Assistant",
       desc: "Control your computer using natural voice commands. Speak, command, and interact with your digital environment hands-free.",
       features: [
@@ -33,7 +33,7 @@ const Services: React.FC = () => {
       textColor: "text-primary"
     },
     {
-      icon: <Hand className="w-8 h-8 text-cyanAccent" />,
+      icon: <Hand className="w-6 sm:w-8 h-6 sm:h-8 text-cyanAccent" />,
       title: "Air Mouse",
       desc: "Turn hand movements into computer actions. Navigate, move the cursor, and interact with your screen without a physical mouse.",
       features: [
@@ -48,7 +48,7 @@ const Services: React.FC = () => {
       textColor: "text-cyanAccent"
     },
     {
-      icon: <MoreHorizontal className="w-8 h-8 text-purpleAccent" />,
+      icon: <MoreHorizontal className="w-6 sm:w-8 h-6 sm:h-8 text-purpleAccent" />,
       title: "Morse Keyboard",
       desc: "Type using Morse code through an accessible input system designed to support alternative text entry and hands-free interaction.",
       features: [
@@ -65,16 +65,16 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section id="features" className="relative py-24 bg-background overflow-hidden">
+    <section id="features" className="relative py-12 sm:py-16 md:py-24 bg-background/80 overflow-hidden">
       {/* Background Gradients & Abstract Shapes */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-cyanAccent/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 opacity-70 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purpleAccent/10 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4 opacity-70 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[400px] sm:w-[800px] h-[400px] sm:h-[800px] bg-cyanAccent/10 rounded-full blur-[90px] sm:blur-[120px] -translate-y-1/2 translate-x-1/3 opacity-70 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] bg-purpleAccent/10 rounded-full blur-[80px] sm:blur-[100px] translate-y-1/3 -translate-x-1/4 opacity-70 pointer-events-none" />
 
-      {/* Flowing Waves (Abstract) */}
-      <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyanAccent/20 to-transparent opacity-50 transform rotate-3" />
-      <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-purpleAccent/20 to-transparent opacity-50 transform -rotate-2" />
+      {/* Flowing Waves (Abstract - Hidden on small mobile to avoid horizontal scroll) */}
+      <div className="hidden sm:block absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyanAccent/20 to-transparent opacity-50 transform rotate-3 pointer-events-none" />
+      <div className="hidden sm:block absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-purpleAccent/20 to-transparent opacity-50 transform -rotate-2 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
 
         {/* Section Heading */}
         <motion.div
@@ -82,15 +82,15 @@ const Services: React.FC = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={itemVariants}
-          className="text-center max-w-3xl mx-auto mb-20"
+          className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 md:mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold text-mainHeading tracking-tight mb-6">
-            Three Ways to Interact. <br className="hidden md:block" />
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-mainHeading tracking-tight mb-4 sm:mb-6">
+            Three Ways to Interact. <br className="hidden sm:inline" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyanAccent to-primary">
               One Intelligent Interface.
             </span>
           </h2>
-          <p className="text-bodyText text-lg leading-relaxed">
+          <p className="text-bodyText text-sm sm:text-base md:text-lg leading-relaxed px-1 sm:px-0">
             Reaura brings together voice commands, hand gestures, and Morse-based text input to make computer interaction more natural, accessible, and flexible.
           </p>
         </motion.div>
@@ -101,40 +101,38 @@ const Services: React.FC = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={containerVariants}
-          className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         >
           {services.map((service, idx) => (
             <motion.div
               key={idx}
               variants={itemVariants}
-              whileHover={{ y: -8 }}
-              className={`bg-card/80 backdrop-blur-xl border border-borderLight rounded-3xl p-8 transition-all duration-500 ${service.shadow} group relative overflow-hidden flex flex-col h-full`}
+              whileHover={{ y: -6 }}
+              className={`bg-card/80 backdrop-blur-xl border border-borderLight rounded-2xl sm:rounded-3xl p-6 sm:p-7 md:p-8 transition-all duration-300 ${service.shadow} group relative overflow-hidden flex flex-col h-full ${idx === 2 ? 'md:col-span-2 lg:col-span-1' : ''}`}
             >
               {/* Card Top Border Accent */}
               <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${service.accent} opacity-50 group-hover:opacity-100 transition-opacity`} />
 
               {/* Icon */}
-              <div className={`w-16 h-16 rounded-2xl ${service.iconBg} flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 shadow-inner`}>
+              <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl ${service.iconBg} flex items-center justify-center mb-5 sm:mb-8 group-hover:scale-110 transition-transform duration-300 shadow-inner`}>
                 {service.icon}
               </div>
 
               {/* Content */}
-              <h3 className="text-2xl font-bold text-mainHeading mb-4">{service.title}</h3>
-              <p className="text-bodyText leading-relaxed mb-8 flex-grow">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-mainHeading mb-2 sm:mb-4">{service.title}</h3>
+              <p className="text-bodyText text-xs sm:text-sm md:text-base leading-relaxed mb-6 sm:mb-8 flex-grow">
                 {service.desc}
               </p>
 
               {/* Features List */}
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-2.5 sm:space-y-3 mb-2">
                 {service.features.map((feature, fIdx) => (
-                  <li key={fIdx} className="flex items-start gap-3 text-sm text-bodyText">
-                    <CheckCircle2 className={`w-5 h-5 ${service.textColor} shrink-0`} />
+                  <li key={fIdx} className="flex items-start gap-2.5 sm:gap-3 text-xs sm:text-sm text-bodyText">
+                    <CheckCircle2 className={`w-4 sm:w-5 h-4 sm:h-5 ${service.textColor} shrink-0 mt-0.5`} />
                     <span className="font-medium">{feature}</span>
                   </li>
                 ))}
               </ul>
-
-
             </motion.div>
           ))}
         </motion.div>

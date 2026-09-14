@@ -3,8 +3,14 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply bg-background text-white antialiased selection:bg-primary/30;
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    @apply bg-background text-bodyText antialiased selection:bg-primary/30;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 }
 

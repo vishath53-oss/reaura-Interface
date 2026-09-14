@@ -7,10 +7,21 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies and build
 node_modules
 dist
 dist-ssr
 *.local
+
+# Python / Virtualenv
+venv/
+.venv/
+env/
+ENV/
+reaura_flutter/venv/
+reaura_flutter/.dart_tool/
+reaura_flutter/build/
+reaura_flutter/windows/flutter/ephemeral/
 
 # Editor directories and files
 .vscode/*
@@ -22,3 +33,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+.vercel
+.env*

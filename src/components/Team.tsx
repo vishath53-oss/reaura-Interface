@@ -36,30 +36,30 @@ const cardVariants = {
 
 const Team: React.FC = () => {
   return (
-    <section id="team" className="relative py-24 bg-transparent overflow-hidden">
-      <div className="absolute top-0 left-0 w-[700px] h-[700px] bg-pink-100/50 rounded-full blur-[140px] -translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-purple-100/40 rounded-full blur-[120px] translate-x-1/4 translate-y-1/4 pointer-events-none" />
+    <section id="team" className="relative py-12 sm:py-16 md:py-24 bg-transparent overflow-hidden">
+      <div className="absolute top-0 left-0 w-[400px] sm:w-[700px] h-[400px] sm:h-[700px] bg-pink-100/50 rounded-full blur-[100px] sm:blur-[140px] -translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-purple-100/40 rounded-full blur-[90px] sm:blur-[120px] translate-x-1/4 translate-y-1/4 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
 
         <motion.div
           initial="hidden" whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-10 sm:mb-16"
         >
-          <motion.div variants={cardVariants} className="inline-block mb-4">
-            <span className="px-4 py-1.5 rounded-full bg-pink-50 border border-pink-200 text-xs font-bold tracking-widest text-pink-600 uppercase shadow-sm">
+          <motion.div variants={cardVariants} className="inline-block mb-3 sm:mb-4">
+            <span className="px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-pink-50 border border-pink-200 text-xs font-bold tracking-widest text-pink-600 uppercase shadow-sm">
               The Team
             </span>
           </motion.div>
-          <motion.h2 variants={cardVariants} className="text-4xl md:text-5xl font-extrabold text-mainHeading tracking-tight mb-6">
+          <motion.h2 variants={cardVariants} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-mainHeading tracking-tight mb-4 sm:mb-6">
             Meet the Team{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">
               Behind Reaura
             </span>
           </motion.h2>
-          <motion.p variants={cardVariants} className="text-bodyText text-lg leading-relaxed">
+          <motion.p variants={cardVariants} className="text-bodyText text-sm sm:text-base md:text-lg leading-relaxed px-2 sm:px-0">
             A passionate group of engineers and innovators dedicated to making digital technology more accessible for everyone.
           </motion.p>
         </motion.div>
@@ -68,7 +68,7 @@ const Team: React.FC = () => {
           initial="hidden" whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={containerVariants}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 mb-10 sm:mb-16"
         >
           {members.map((member) => (
             <motion.div
@@ -76,11 +76,11 @@ const Team: React.FC = () => {
               variants={cardVariants}
               whileHover={{ y: -8, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="group relative flex flex-col items-center p-8 rounded-3xl bg-white border border-pink-100 shadow-sm hover:shadow-[0_20px_50px_rgba(236,72,153,0.13)] transition-all duration-300"
+              className="group relative flex flex-col items-center p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-pink-100 shadow-sm hover:shadow-[0_20px_50px_rgba(236,72,153,0.13)] transition-all duration-300"
             >
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-pink-50/0 to-purple-50/0 group-hover:from-pink-50/60 group-hover:to-purple-50/40 transition-all duration-500 pointer-events-none" />
+              <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-pink-50/0 to-purple-50/0 group-hover:from-pink-50/60 group-hover:to-purple-50/40 transition-all duration-500 pointer-events-none" />
 
-              <div className="relative w-32 h-32 rounded-full overflow-hidden mb-5 ring-4 ring-pink-100 group-hover:ring-pink-300 shadow-md transition-all duration-300">
+              <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden mb-4 sm:mb-5 ring-4 ring-pink-100 group-hover:ring-pink-300 shadow-md transition-all duration-300">
                 {member.imgSrc ? (
                   <img
                     src={member.imgSrc}
@@ -100,7 +100,7 @@ const Team: React.FC = () => {
                 )}
               </div>
 
-              <h3 className="text-lg font-extrabold text-mainHeading text-center relative z-10">
+              <h3 className="text-base sm:text-lg font-extrabold text-mainHeading text-center relative z-10">
                 {member.name}
               </h3>
 
@@ -112,9 +112,9 @@ const Team: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.7 }}
-          className="text-center"
+          className="text-center px-4"
         >
-          <p className="text-xl md:text-2xl font-bold text-mainHeading leading-relaxed">
+          <p className="text-base sm:text-xl md:text-2xl font-bold text-mainHeading leading-relaxed">
             "Together, we are building a more{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">
               accessible digital future.
